@@ -1,0 +1,138 @@
+from urllib.parse import urlparse
+
+def is_valid_url(url):
+    parsed_url = urlparse(url)
+    return all([parsed_url.scheme, parsed_url.netloc])
+
+
+import random
+
+
+
+# Generating the list of random numbers
+
+random_numbers = []
+
+for i in range(10):
+
+  random_numbers.append(random.randint(1, 100))
+
+
+
+# Replacing numbers greater than 80 with their negative values
+
+random_numbers = [-num if num > 80 else num for num in random_numbers]
+
+
+
+# Printing the final list
+
+
+def days_since_birthday(birthday):
+    def is_leap_year(year):
+        return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+
+    # Extract day, month, year from the birthday string
+    day, month, year = map(int, birthday.split('-'))
+    current_year = 2024  # Replace with the current year
+
+    # Counting days
+    days = 0
+    for y in range(year + 1, current_year):
+        days += 366 if is_leap_year(y) else 365
+
+    return days
+
+# Example usage
+print(days_since_birthday("01-11-2004"))
+
+
+# Creating a list
+
+my_list = [1, 2, 3]
+
+
+
+# Modifying the list
+
+my_list.append(4) # Adding a new element
+
+my_list[0] = 0   # Changing an existing element
+
+
+
+print(my_list) # Output will be [0, 2, 3, 4]
+
+
+# Creating a string
+
+my_string = "Hello"
+
+
+
+# Attempting to modify the string
+
+try:
+
+  my_string[0] = 'h'
+
+except TypeError as e:
+
+  print(e)
+
+
+
+print(my_string) # Output will still be "Hello"
+
+import re
+
+
+def find_pattern_occurrences(text):
+    # Define the pattern to match
+
+    pattern = r'C[a-zA-Z]*jeb'
+
+    # Find all non-overlapping matches of the pattern in the string
+
+    matches = re.findall(pattern, text)
+
+    # The number of matches is the length of the list of matches
+
+    return len(matches)
+
+
+# Example usage:
+
+text_to_search = "Some text with Cxxxxjeb and Cjeb patterns and some without."
+
+print(find_pattern_occurrences(text_to_search))  # Output will be the number of matches
+
+
+import datetime
+
+# Current values for a and b
+a = 3
+b = 4
+
+# Getting today's date and extracting day of the week and month of the year
+today = datetime.datetime.today()
+day_of_week = today.weekday()
+month_of_year = today.month
+
+# Updating the values of a and b
+a += day_of_week
+b += month_of_year
+
+# Printing the updated values of a and b
+a_output = a
+b_output = b
+
+# Calculating c and printing it
+c = a + b
+c_output = c
+
+# Calculating d and printing it
+d = "abc" * (c // 3)
+d_output = d
+
+a_output, b_output, c_output, d_output
